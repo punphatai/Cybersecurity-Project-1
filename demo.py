@@ -1,8 +1,16 @@
 import encyption
 import decryption
 
-print("Please input string at least 32 character.")
-text = input("Enter string: ")
+text = ""
+def input_string():
+    global text
+    text = input("Enter string: ")
+    if len(text) < 32:
+        print("Please input string at least 32 character.\n")
+        input_string()
+    return text
+
+input_string()
 print('Text before Encrypt: ',text)
 print('-'*200)
 encrypted_text = encyption.encyptText(text)
